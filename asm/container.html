@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta charset="utf-8">
+	<title>My Angular App Container!</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>		
+    <!-- <script src="js/test_assessment.js"></script> -->
+	
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
+	
+	<style type="text/css" media="screen">
+		ul li{
+            list-style: none;
+            margin-left:-30px;
+        }
+        body{
+            counter-reset: mycounter;
+        }
+        ol.start{
+            padding-left: 40px;
+        }
+        ol.continue{
+            padding-left: 40px;
+        }
+        ol.start>div>li {
+            list-style: none;
+        }
+        ol.continue>div>li {
+            list-style: none;
+        }
+        ol.start>div>li:before {
+            counter-increment: mycounter;
+            content: counter(mycounter) ".) ";
+            margin-left:-30px;
+        }
+        ol.continue>div>li:before {
+            counter-increment: mycounter;
+            content: counter(mycounter) ".) ";
+            margin-left:-30px;
+        }
+	</style>
+  </head>
+  <body ng-app="myApp">
+	<div  ng-controller="mainCtrl">
+		<!-- <div ng-include="'container_index.html'"></div> -->
+		<div ng-include="'aicc_containerindex.html'"></div>
+	</div>
+	<script src="js/angularjs/angular.min.js"></script>
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/assessment.js"></script>
+	<script src="js/presentation.js"></script>
+	<script src="js/aicc-plugin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>My Angular App!</title>
+	<script src="js/angularjs/angular.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/assessment.js"></script>
+    <!-- <script src="js/test_assessment.js"></script> -->
+	<script src="js/presentation.js"></script>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
+	
+	<style type="text/css" media="screen">
+		ul li{
+			list-style: none;
+			margin-left:-30px;
+		}
+		body{
+			counter-reset: mycounter; 
+		}
+		ol.start{
+			padding-left: 40px;
+		}
+		ol.continue{
+			padding-left: 40px;
+		}
+		ol.start>div>li {
+			list-style: none;
+		}
+		ol.continue>div>li {
+			list-style: none;
+		}
+		ol.start>div>li:before { 
+			counter-increment: mycounter;
+			content: counter(mycounter) ".) "; 
+			margin-left:-30px;
+		}
+		ol.continue>div>li:before {
+			counter-increment: mycounter;
+			content: counter(mycounter) ".) ";
+			margin-left:-30px;
+		}
+	</style>
+  </head>
+  <body ng-app="myApp" >
+	<div ng-controller="mainCtrl">
+		<div ng-show="debug">{{tests}}</div>
+		
+		<div ng-show="debug">
+			<div class="row">
+				<label class="col-sm-3">ID</label><div class="col-sm-4">{{asm.assessmentId}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3">Title</label><div class="col-sm-4">{{asm.assessmentText}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3"># of Blocks</label><div class="col-sm-4">{{asm.getNumberOfBlocks()}}</div>
+			</div>
+			<div class="row" ng-show="!asm.isAllQuestions">
+				<label class="col-sm-3"># of Questions</label><div class="col-sm-4">{{asm.askNumOfQuestions}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3">Ask all of Questions</label><div class="col-sm-4">{{asm.isAllQuestions}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3">#Selected Questions</label><div class="col-sm-4">{{asm.getNumOfSelectedQuestions()}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3">Random Blocks </label><div class="col-sm-4">{{asm.assessmentQBlockRandomizeFlag}}</div>
+			</div>
+			<div class="row">
+				<label class="col-sm-3">Active</label><div class="col-sm-4">{{asm.assessmentFlag}}</div>
+			</div>
+		</div>
+		
+		<div>
+			<div class="container">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-1"><input type="button" value="Cancel"></div>
+						<div class="col-sm-1"><input type="submit" value="Submit" ng-click="evaluateAssessment()"></div>
+					</div>
+				</div>
+				<div class="row"><div class="col-sm-9"><h3>{{asm.assessmentText}}</h3><hr/></div></div>
+				<div class="row">
+					<div class="col-sm-12" ng-repeat="qBlock in asm.getSortedQuestionBlocks()">
+						<div ng-show="asm.assessmentQBlockTextFlag =='1'" class="row"><div class="col-sm-9"><u><h4>{{qBlock.qBlockText}}</h4></u></div></div>
+						<div ng-show="debug">
+							<div class="row"><label class="col-sm-3">QB ID</label><div class="col-sm-4">{{qBlock.qBlockId}}</div></div>
+							<div class="row"><label class="col-sm-3">QB Title</label><div class="col-sm-4">{{qBlock.qBlockText}}</div></div>
+							<div class="row"><label class="col-sm-3">#Q</label><div class="col-sm-4">{{qBlock.qBlockQuestions.length}}</div></div>
+							<div class="row"><label class="col-sm-3">#Q Selected</label><div class="col-sm-4">{{asm.getNumOfSelectedQuestionsInQBlock(qBlock.qBlockId)}}</div></div>
+						</div>
+						
+						<ol class="{{(($index > 0)? 'continue' : 'start')}}">
+							<div ng-repeat="qtn in asm.getSortedQuestions(qBlock.qBlockId)">
+								<li><label>{{qtn.questionText}} [{{qtn.order}}] [{{qtn.questionType}}]</label></li>
+								<ul>
+									<div ng-repeat="qchs in asm.getSortedQChoice(qtn.questionId)">
+										<li> 
+											<input type="{{qtn.questionType=='single'? 'radio':'checkbox'}}" name="{{qtn.questionId}}" id="{{qchs.answerId}}" value="{{qchs.answerId}}" ng-click="questionChoice(this)">
+											<label for="{{qchs.answerId}}">{{qchs.answerText}}</label>
+										</li>
+									</div>
+								</ul>
+							</div>
+						</ol>
+					</div>
+					<hr/>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

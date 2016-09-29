@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>My Angular App!</title>
+	<script src="js/angularjs/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/assessment.js"></script>
+    <!-- <script src="js/test_assessment.js"></script> -->
+	<script src="js/presentation.js"></script>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
+  </head>
+  <body ng-app="myApp" >
+	<div ng-controller="mainCtrl">
+		<div ng-show="debug">{{tests}}</div>
+		<div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">Take Test: Creates the session id and redirects the user to the container</div>
+					<div class="col-sm-6"> --> container loads the assessment for that session. If user reloads browser again the assessment  </div>
+					<div class="col-sm-1"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-1">Test 1 :</div>
+					<div class="col-sm-2 offset-left"><a href="container.html?AICC_SID=session_1234&AICC_URL=http://localhost/bunge/asm/scripts/test_app/aicc_info.php" target="aicc_container">Basic Core Java</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

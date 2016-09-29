@@ -1,0 +1,67 @@
+<script type="text/javascript">
+$(function()
+{
+$('#userContainer').hide(true);
+/* sets aicc information */
+$('#setBtn').click(function()
+{	
+    $.aicc(
+    {
+        action:'set',
+		session_id: 'session_1234',
+        score:'83',
+        time:'00:00:01',
+        credit:'C',
+        location:'page_1',
+        status:'Completed',
+        response:function(r)
+        {
+            console.log("Error:="+r['error']);
+            console.log("Error_Text:="+r['error_text']);
+            //console.log("Version:="+r['version']);
+        }
+    });
+});
+/* gets ALL aicc information (returns in JSON format */
+$('#getBtn').click(function()
+{
+    $.aicc(
+    {
+        action:'get',
+        response:function(r)
+        {
+			//console.log(r);
+			
+			showStudentData(r);
+            /*console.log("Error:="+r['error']);
+            console.log("Error_Text:="+r['error_text']);
+            console.log("Version:="+r['version']);
+            console.log("Aicc_Data:="+r['aicc_data']);
+            console.log("Student_Id:="+r['student_id']);
+            console.log("Student_Name:="+r['student_name']);
+            console.log("Score:="+r['score']);
+            console.log("Time:="+r['time']);
+            console.log("Credit:="+r['credit']);
+            console.log("Lesson_Location:="+r['lesson_location']);
+            console.log("Lesson_Status:="+r['lesson_status']);*/
+        }
+    });
+});
+
+});
+
+function showStudentData(response){
+	$('#userContainer').show(true);
+	$("#studentId").html(response['student_id']);
+	$("#studentName").html(response['student_name']);
+}
+</script>
+
+<button id="setBtn" ng-click="setButton()">Set AICC</button>
+<button id="getBtn" ng-click="getButton()">Get AICC</button>
+<button id="exitBtn">Exit AICC</button>
+
+<div id="userContainer">
+	<div>Student ID: <span id="studentId"></span></div>
+	<div>Student Name: <span id="studentName"></span></div>	
+</div>

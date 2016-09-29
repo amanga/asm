@@ -1,0 +1,98 @@
+<root>
+	<qns>
+		<qn id="QSTN_ID_11">
+			<title><![CDATA[]></title>
+			<subtitle><![CDATA[]></subtitle>
+		</qn>
+		<qn id="QSTN_ID_12">
+			<title><![CDATA[]></title>
+			<subtitle><![CDATA[]></subtitle>
+		</qn>
+		<qn id="QSTN_ID_21">
+			<title><![CDATA[]></title>
+			<subtitle><![CDATA[]></subtitle>
+		</qn>
+		<qn id="QSTN_ID_22"  typ="s" odr="1" std="0" flg="">
+			<title typ="t"><![CDATA[What is the numerical range of a char in Java?]></title>
+			<subtitle typ="t"><![CDATA[]></subtitle>
+		</qn>
+	</qns>
+	<ans>
+		<an id="ANS_ID_1">
+			<title typ="t"><![CDATA[]></title>
+		</an>
+		<an id="ANS_ID_2"></an>
+		<an id="ANS_ID_3"></an>
+		<an id="ANS_ID_4"></an>
+		<an id="ANS_ID_5"></an>
+		<an id="ANS_ID_6"></an>
+		<an id="ANS_ID_7"></an>
+		<an id="ANS_ID_8"></an>
+		<an id="ANS_ID_9"></an>
+		<an id="ANS_ID_10"></an>
+		<an id="ANS_ID_11"></an>
+		<an id="ANS_ID_12"></an>
+		<an id="ANS_ID_13">
+			<title typ="t"><![CDATA[-128 to 127]]></title>
+		</an>
+		<an id="ANS_ID_14">
+			<title typ="t"><![CDATA[-128 to 127]]></title>
+		</an>
+		<an id="ANS_ID_15">
+			<title typ="t"><![CDATA[-128 to 127]]></title>
+		</an>
+		<an id="ANS_ID_16">
+			<title typ="t"><![CDATA[-128 to 127]]></title>
+		</an>
+	</ans>
+	<qbs>
+		<qb id="QB_ID_1">
+		</qb>
+		<qb id="QB_ID_2">
+		</qb>
+	</qbs>
+	<asm>
+		<aqbs>
+			<aqb id="QB_ID_1">
+				<aqns>
+					<aqn id="QSTN_ID_11">
+						<ans>
+							<an id="ANS_ID_1"></an>
+							<an id="ANS_ID_2"></an>
+							<an id="ANS_ID_3"></an>
+							<an id="ANS_ID_4"></an>
+						<ans>
+					</aqn>
+					<aqn id="QSTN_ID_12">
+						<ans>
+							<an id="ANS_ID_5"></an>
+							<an id="ANS_ID_6"></an>
+							<an id="ANS_ID_7"></an>
+							<an id="ANS_ID_8"></an>
+						<ans>
+					</aqn>
+				</aqns>
+			</aqb>
+			<aqb id="QB_ID_2">
+				<aqns>
+					<aqn id="QSTN_ID_21">
+						<ans>
+							<an id="ANS_ID_9"></an>
+							<an id="ANS_ID_10"></an>
+							<an id="ANS_ID_11"></an>
+							<an id="ANS_ID_12"></an>
+						<ans>
+					</aqn>
+					<aqn id="QSTN_ID_22">
+						<ans>
+							<an id="ANS_ID_13"></an>
+							<an id="ANS_ID_14"></an>
+							<an id="ANS_ID_15"></an>
+							<an id="ANS_ID_16"></an>
+						<ans>
+					</aqn>
+				</aqns>
+			</aqb>			
+		</aqbs>
+	</asm>
+</root>

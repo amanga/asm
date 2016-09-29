@@ -1,0 +1,56 @@
+<?php 
+class UserRegistrations implements JsonSerializable{
+	private $_userRegistrationId;
+	private $_userId;
+	private $_assessmentId;
+	private $_createdOn;
+	private $_createdBy;
+	private $_lastmodifiedOn;
+	private $_lastmodifiedBy;
+	private $_status;
+	private $_removed;
+	private $_description;
+	private $_comments;
+	
+	
+}
+
+?>
+
+class User implements JsonSerializable{
+	user_id
+	created_on
+	created_by
+	lastmodified_on
+	lastmodified_by
+	login
+	pwd
+	log_params
+	first_logdate
+	last_logdate
+	last_lcid
+	permissions
+	params
+	status
+	removed
+	comments
+	national_id
+	fname
+	mname
+	lname
+	address
+	city
+	state
+	postalcode
+	country
+	phoffice
+	phmobile
+	phhome
+	phfax
+	smtp
+	dob
+	company
+	department
+	ipaddress
+
+}

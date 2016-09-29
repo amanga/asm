@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>My Angular App!</title>
+	<script src="js/angularjs/angular.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/sample_js.js"></script>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
+	<style type="text/css" media="screen">
+		ul li{
+			list-style-type: none;
+		}		
+		ol.start{
+			counter-reset: mycounter; 
+		}
+		ol.start>div>li {
+			list-style: none;
+		}
+		ol.continue>div>li {
+			list-style: none;
+		}
+		ol.start>div>li:before { 
+			counter-increment: mycounter;
+			content: counter(mycounter) ".) "; 
+		}
+		ol.continue>div>li:before {
+			counter-increment: mycounter;
+			content: counter(mycounter) ".) ";
+		}
+	</style>
+  </head>
+  <body ng-app="myApp" >
+	<div ng-controller="mainCtrl">
+		<div ng-show="debug">{{tests}}</div>
+		
+		<div ng-repeat="qtn in getSortedQuestions(qBlock.qBlockId)">
+			<li>{{qtn.questionText}} [{{qtn.order}}] [{{qtn.questionType}}]</li>
+			<ul>
+				<div ng-repeat="qchs in asm.getSortedQChoice(qtn.questionId)">
+					<li> 
+						<input type="{{qtn.questionType=='single'? 'radio':'checkbox'}}" name="{{qtn.questionId}}" id="{{qchs.answerId}}" value="{{qchs.answerId}}" ng-click="questionChoice(this)">
+						<label for="{{qchs.answerId}}">{{qchs.answerText}}</label>
+					</li>
+				</div>
+			</ul>
+		</div>
+		<ol class="start">
+			<div>
+				<li>Item list 1</li>
+				<li>Item list 2</li>
+			</div>
+		</ol>		
+		<ol class="continue">
+		<div>
+		  <li>Item list 3
+			<ul>
+				<li>Item list 3.1</li>
+				<li>Item list 3.2</li>
+			</ul>
+		  </li>
+		  <li>Item list 4</li>
+		  </div>
+		</ol>  
+	</div>
+  </body>
+</html>

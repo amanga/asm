@@ -1,0 +1,411 @@
+<root id="ASM_JAVA_1" qbtitleflag="0" qbrandomflag="1" flag="1">
+	<title>
+		<![CDATA[Basic Core Java]]>
+	</title>
+	<questionblocks>
+		<questionblock id="QBLK_154" order="0" selected="0" flag="1">
+			<title>
+				<![CDATA[Data Type Questions]]>
+			</title>
+			<questions>
+				<question id="QST_155" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[What is the numerical range of a char in Java?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_165" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[-128 to 127]]>
+							</title>
+						</answer>
+						<answer id="ANS_175" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[ 0 to 256]]>
+							</title>
+						</answer>
+						<answer id="ANS_185" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[ 0 to 32767]]>
+							</title>
+						</answer>
+						<answer id="ANS_195" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[ 0 to 65535]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_156" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these coding types is used for data type characters in Java?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_166" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[ASCII]]>
+							</title>
+						</answer>
+						<answer id="ANS_176" order="2" selected="0" correct="0">
+							<title>
+								<![CDATA[ISO-LATIN-1]]>
+							</title>
+						</answer>
+						<answer id="ANS_186" order="3" selected="0" correct="1">
+							<title>
+								<![CDATA[UNICODE]]>
+							</title>
+						</answer>
+						<answer id="ANS_196" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[None of the mentioned]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_157" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these values can a boolean variable contain?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_167" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[ True or False]]>
+							</title>
+						</answer>
+						<answer id="ANS_177" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[0 or 1]]>
+							</title>
+						</answer>
+						<answer id="ANS_187" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[Any integer value]]>
+							</title>
+						</answer>
+						<answer id="ANS_197" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[TRUE]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_158" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of the following are legal lines of Java code?]]>
+					</title>
+					<subtitle>
+						<![CDATA[<ol><li>int w = (int)888.8;</li><li>byte x = (byte)100L;</li><li>long y = (byte)100;</li><li>byte z = (byte)100L;</li></ol>]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_168" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[1 & 2]]>
+							</title>
+						</answer>
+						<answer id="ANS_178" order="2" selected="0" correct="0">
+							<title>
+								<![CDATA[2 & 3]]>
+							</title>
+						</answer>
+						<answer id="ANS_188" order="3" selected="0" correct="0">
+							<title>
+								<![CDATA[3 & 4]]>
+							</title>
+						</answer>
+						<answer id="ANS_198" order="1" selected="0" correct="1">
+							<title>
+								<![CDATA[All statements are correct]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1512" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these operators is used to allocate memory to array variable in Java?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1612" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[malloc]]>
+							</title>
+						</answer>
+						<answer id="ANS_1712" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[alloc]]>
+							</title>
+						</answer>
+						<answer id="ANS_1812" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[new]]>
+							</title>
+						</answer>
+						<answer id="ANS_1912" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[new malloc]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1513" type="multiple" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these is an incorrect array declaration?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1613" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[int arr[] = new int[5] ]]>
+							</title>
+						</answer>
+						<answer id="ANS_1713" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[int [] arr = new int[5]]]>
+							</title>
+						</answer>
+						<answer id="ANS_1813" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[ int arr[] arr = new int[5]]]>
+							</title>
+						</answer>
+						<answer id="ANS_1913" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[int arr[] = int [5] new]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1514" type="multiple" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these is an incorrect Statement?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1614" order="1" selected="0" correct="1">
+							<title>
+								<![CDATA[It is necessary to use new operator to initialize an array.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1714" order="2" selected="0" correct="1">
+							<title>
+								<![CDATA[Array can be initialized using comma separated expressions surrounded by curly braces.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1814" order="3" selected="0" correct="0">
+							<title>
+								<![CDATA[Array can be initialized when they are declared.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1914" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[None of the mentioned]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+			</questions>
+		</questionblock>
+		<questionblock id="QBLK_1516"  order="0" selected="0" flag="1">
+			<title>
+				<![CDATA[Object Questions]]>
+			</title>
+			<questions>
+				<question id="QST_1517" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[What is the stored in the object obj in following lines of code?]]>
+					</title>
+					<subtitle>
+						<![CDATA[<ol><li>box obj;</li></ol>]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1617" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[Memory address of allocated memory of object.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1717" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[NULL]]>
+							</title>
+						</answer>
+						<answer id="ANS_1817" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[Any arbitrary pointer]]>
+							</title>
+						</answer>
+						<answer id="ANS_1917" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[Garbage]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1518" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[What is the return type of a method that does not returns any value?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1618" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[int]]>
+							</title>
+						</answer>
+						<answer id="ANS_1718" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[float]]>
+							</title>
+						</answer>
+						<answer id="ANS_1818" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[void]]>
+							</title>
+						</answer>
+						<answer id="ANS_1918" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[String]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1519" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[What is the process of defining more than one method in a class differentiated by method signature?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1619" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[Method Overriding]]>
+							</title>
+						</answer>
+						<answer id="ANS_1719" order="2" selected="0" correct="0">
+							<title>
+								<![CDATA[Method Overloading]]>
+							</title>
+						</answer>
+						<answer id="ANS_1819" order="3" selected="0" correct="0">
+							<title>
+								<![CDATA[Method Doubling]]>
+							</title>
+						</answer>
+						<answer id="ANS_1919" order="1" selected="0" correct="0">
+							<title>
+								<![CDATA[None of the Above]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1520" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of the following is a method having same name as that of it’s class?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1620" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[finalize]]>
+							</title>
+						</answer>
+						<answer id="ANS_1720" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[delete]]>
+							</title>
+						</answer>
+						<answer id="ANS_1820" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[class]]>
+							</title>
+						</answer>
+						<answer id="ANS_1920" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[constructor]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1521" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which method can be defined only once in a program?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1621" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[main method]]>
+							</title>
+						</answer>
+						<answer id="ANS_1721" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[finalize method]]>
+							</title>
+						</answer>
+						<answer id="ANS_1821" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[static method]]>
+							</title>
+						</answer>
+						<answer id="ANS_1921" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[private method]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+				<question id="QST_1522" type="single" flag="1" order="0" selected="1">
+					<title>
+						<![CDATA[Which of these statement is incorrect?]]>
+					</title>
+					<subtitle>
+						<![CDATA[]]>
+					</subtitle>
+					<answers>
+						<answer id="ANS_1622" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[All object of a class are allotted memory for the all the variables defined in the class.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1722" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[If a function is defined public it can be accessed by object of other class by inheritation.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1822" order="0" selected="0" correct="0">
+							<title>
+								<![CDATA[main() method must be made public.]]>
+							</title>
+						</answer>
+						<answer id="ANS_1922" order="0" selected="0" correct="1">
+							<title>
+								<![CDATA[All object of a class are allotted memory for the methods defined in the class.]]>
+							</title>
+						</answer>
+					</answers>
+				</question>
+			</questions>
+		</questionblock>
+	</questionblocks>
+</root>

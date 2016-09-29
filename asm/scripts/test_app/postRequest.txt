@@ -1,0 +1,6 @@
+[CORE]
+lesson_location=page_1
+credit=undefined
+score=83
+time=00:00:01
+lesson_status=Completed

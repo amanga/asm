@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>My Angular App!</title>
+	<script src="js/angularjs/angular.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/sample_js.js"></script>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
+		
+  </head>
+  <body ng-app="myApp" >
+	<div ng-controller="mainCtrl">
+		<div ng-show="debug">{{tests}}</div>
+		
+		<div ng-repeat="qtn in getSortedQuestions(qBlock.qBlockId)">
+			<li>{{qtn.questionText}} [{{qtn.order}}] [{{qtn.questionType}}]</li>
+			<ul>
+				<div ng-repeat="qchs in asm.getSortedQChoice(qtn.questionId)">
+					<li> 
+						<input type="{{qtn.questionType=='single'? 'radio':'checkbox'}}" name="{{qtn.questionId}}" id="{{qchs.answerId}}" value="{{qchs.answerId}}" ng-click="questionChoice(this)">
+						<label for="{{qchs.answerId}}">{{qchs.answerText}}</label>
+					</li>
+				</div>
+			</ul>
+		</div>
+		
+	</div>
+  </body>
+</html>
