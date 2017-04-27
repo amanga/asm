@@ -199,4 +199,5 @@
 	/* echo $asm->getId()."<br/>";
 	echo $asm->getTItle()."<br/>"; */
 	echo json_encode($asm);
+
 ?>

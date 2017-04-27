@@ -1,5 +1,8 @@
 var app = angular.module("myApp",[]);
 
+var defaultQuestionsToAsk = 10;
+var defaultPassingScore = 60;
+
 var userSelectionQs = new Object();
 app.controller("mainCtrl",function($scope,$http){
 	$scope.debug = false;
@@ -7,9 +10,11 @@ app.controller("mainCtrl",function($scope,$http){
 	$scope.totalCorrectlyQsAnswered = 0;
 	$scope.totalAskedQs = 0;
 	$scope.asmFriendlyMssg = "";
+
 	
+
 	$scope.tests = "Angular js";
-	var url="scripts/test_app/test.php";
+	var url="scripts/test_app/loadAsm.php";
 	$http.get(url).success(function(response){
 		var asmVal = angular.fromJson(response);
 		$scope.asm = asmVal;
@@ -164,10 +169,14 @@ function getAssessment(asm,allQuestionsFlag){
 	var rtnFinalAsmObj;
 	var asmQBlocks = getQuestionBlock(asm.qblocks);
 	var asmObj = new Assessment(asm.asmid,asm.asmtitle,asmQBlocks,asm.qbtitleflag,asm.qbrandom,asm.asmnote,asm.asmcomment,asm.asmdesc,asm.asmflag);
+
+	console.log("NumOFQuestion to Ask"+(((asm.askNumOfQuestions==null)||(asm.askNumOfQuestions==undefined))?defaultQuestionsToAsk:asm.askNumOfQuestions));
+	console.log("Passing Score"+(((asm.passingScore==null)||(asm.passingScore==undefined))?defaultQuestionsToAsk:asm.passingScore));
+	
 	//set num of questions to be asked.
-	asmObj.setAskNumOfQuestions(asm.askNumOfQuestions);
+	asmObj.setAskNumOfQuestions((((asm.askNumOfQuestions==null)||(asm.askNumOfQuestions==undefined))?defaultQuestionsToAsk:asm.askNumOfQuestions));
 	//set passing score for the assessment.
-	asmObj.setPassingScore(asm.passingScore);
+	asmObj.setPassingScore((((asm.passingScore==null)||(asm.passingScore==undefined))?defaultQuestionsToAsk:asm.passingScore));
 	asmObj.setAllQuestionsFlag(allQuestionsFlag);
 	if(asmObj.assessmentQBlockRandomizeFlag == "1"){
 		asmObj.resetQuestionBlockOrder();
