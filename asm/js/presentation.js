@@ -101,10 +101,18 @@ app.controller("mainCtrl",function($scope,$http){
 			var colAnsSeltd = userSelectionQs[keyQId];
 			//correct answers from source
 			var colCorrectAns = $scope.asm.getCorrectAnswers(keyQId);
+			
 			var giveScore = true;
+			//if question is multi choice, the size 
+			if(colAnsSeltd.length >= colCorrectAns.length ){
+					giveScore = giveScore && true;
+			}else{
+				giveScore = giveScore && false;
+			}
+			
 			angular.forEach(colAnsSeltd, function(value, keyQ) {
 				if(colCorrectAns.indexOf(value)>-1){
-					giveScore = giveScore && true
+					giveScore = giveScore && true;
 				}else{
 					giveScore = giveScore && false;
 				}
