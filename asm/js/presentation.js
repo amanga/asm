@@ -1,8 +1,5 @@
 var app = angular.module("myApp",[]);
 
-var defaultQuestionsToAsk = 10;
-var defaultPassingScore = 60;
-
 var userSelectionQs = new Object();
 app.controller("mainCtrl",function($scope,$http){
 	$scope.debug = false;
@@ -11,7 +8,6 @@ app.controller("mainCtrl",function($scope,$http){
 	$scope.totalAskedQs = 0;
 	$scope.asmFriendlyMssg = "";
 
-	
 
 	$scope.tests = "Angular js";
 	var url="scripts/test_app/loadAsm.php?id=1";
@@ -156,82 +152,5 @@ app.controller("mainCtrl",function($scope,$http){
 	}
 });
 
-function addToCollectedAnsArray(colAns, ansId){
-	debugMssg("Inside := addToCollectedAnsArray");
-	var rtnColAns = new Array();
-	angular.forEach(colAns, function(value, keyQ) {
-		rtnColAns.push(value);
-	});
-	rtnColAns.push(ansId);
-	return rtnColAns;
-}
 
-function removeFromCollectedAnsArray(colAns, ansId){
-	debugMssg("Inside := removeFromCollectedAnsArray");
-	var rtnColAns = new Array();
-	angular.forEach(colAns, function(value, keyQ) {
-		//setting as a default false, to check the condition 
-		if((value == ansId)){
-			//do jack squat....
-		}else{
-			rtnColAns.push(value);
-		}
-	});
-	return rtnColAns;
-}
 
-function getAssessment(asm,allQuestionsFlag){
-	var rtnFinalAsmObj;
-	var asmQBlocks = getQuestionBlock(asm.qblocks);
-	var asmObj = new Assessment(asm.asmid,asm.asmtitle,asmQBlocks,asm.qbtitleflag,asm.qbrandom,asm.asmnote,asm.asmcomment,asm.asmdesc,asm.asmflag);
-
-	console.log("NumOFQuestion to Ask"+(((asm.askNumOfQuestions==null)||(asm.askNumOfQuestions==undefined))?defaultQuestionsToAsk:asm.askNumOfQuestions));
-	console.log("Passing Score"+(((asm.passingScore==null)||(asm.passingScore==undefined))?defaultQuestionsToAsk:asm.passingScore));
-	
-	//set num of questions to be asked.
-	asmObj.setAskNumOfQuestions((((asm.askNumOfQuestions==null)||(asm.askNumOfQuestions==undefined))?defaultQuestionsToAsk:asm.askNumOfQuestions));
-	//set passing score for the assessment.
-	asmObj.setPassingScore((((asm.passingScore==null)||(asm.passingScore==undefined))?defaultQuestionsToAsk:asm.passingScore));
-	asmObj.setAllQuestionsFlag(allQuestionsFlag);
-	if(asmObj.assessmentQBlockRandomizeFlag == "1"){
-		asmObj.resetQuestionBlockOrder();
-		asmObj.resetQuestionOrder();
-		asmObj.resetAnswerOrder();
-	}
-	asmObj.resetQuestionSelected();
-	rtnFinalAsmObj = new FinalizedAssessment(asmObj);
-	return rtnFinalAsmObj.getAsm();
-}
-
-function getQuestionBlock(qBlocks){
-	var rtnArrayQBlocks = new Array();
-	angular.forEach(qBlocks, function(value,key){
-		var arrayQs = getQuestions(value.questions);
-		var tmpQBlock = new QuestionBlock(value.qbid,value.qbtitle,arrayQs,value.random,value.qbnote,value.qbcomment,value.qbdesc,value.qbflag,value.qborder,value.qbselect);
-		rtnArrayQBlocks.push(tmpQBlock);
-	});
-	return rtnArrayQBlocks;
-}
-
-function getQuestions(arrayQs){
-	var rtnArrayQs = new Array();
-	angular.forEach(arrayQs, function(value,key){
-		var arrayAns = getAnswers(value.answers);
-		var tmpQ = new Question(value.qid,value.qtitle,value.qsubtitle,value.qtitletype,value.qtype,arrayAns,value.qcomment,value.qdesc,value.qflag,value.qorder,value.qselect,value.qexplanation,value.qrequired);
-		rtnArrayQs.push(tmpQ);
-	});
-	return rtnArrayQs;
-}
-
-function getAnswers(arrayAns){
-	var rtnArrayAns = new Array();
-	angular.forEach(arrayAns, function(value,key){
-		var tmpAns = new QuestionChoice(value.ansid,value.anstitle,value.anstitletype,value.anscorrectflag,value.anscomment,value.ansdesc,value.ansflag,value.ansorder,value.ansselect);
-		rtnArrayAns.push(tmpAns);
-	});
-	return rtnArrayAns;
-}
-
-function debugMssg(mssg){
-	console.log(mssg);
-}
