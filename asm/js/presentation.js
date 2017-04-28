@@ -14,7 +14,7 @@ app.controller("mainCtrl",function($scope,$http){
 	
 
 	$scope.tests = "Angular js";
-	var url="scripts/test_app/loadAsm.php";
+	var url="scripts/test_app/loadAsm.php?id=1";
 	$http.get(url).success(function(response){
 		var asmVal = angular.fromJson(response);
 		$scope.asm = asmVal;
@@ -138,6 +138,21 @@ app.controller("mainCtrl",function($scope,$http){
 			debugMssg("Failed the Assessment");
 		}
 		debugMssg("You have scored ("+$scope.totalNumOfCorrectQs+")/"+"("+$scope.totalAskedQs+")"+  $scope.totalPassPercent +"%");
+	}
+
+	$scope.printAssessment = function(printableArea){
+		var printContent = document.getElementById(printableArea).innerHTML;
+		var popupWin = window.open('', '_blank', 'width=300,height=300');
+		popupWin.document.open();
+		popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContent + '</body></html>');
+		popupWin.document.close();
+	}
+	$scope.printNot = function(){
+		if($scope.debug){
+			return "displayBlock";
+		}else{
+			return "displayNone";
+		}
 	}
 });
 

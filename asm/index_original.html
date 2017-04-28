@@ -13,8 +13,38 @@
     <!-- <script src="js/test_assessment.js"></script> -->
 	
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.css" >
-	<link rel="stylesheet" href="css/style.css" >
 	
+	<style type="text/css" media="screen">
+		ul li{
+            list-style: none;
+            margin-left:-30px;
+        }
+        body{
+            counter-reset: mycounter;
+        }
+        ol.start{
+            padding-left: 40px;
+        }
+        ol.continue{
+            padding-left: 40px;
+        }
+        ol.start>div>li {
+            list-style: none;
+        }
+        ol.continue>div>li {
+            list-style: none;
+        }
+        ol.start>div>li:before {
+            counter-increment: mycounter;
+            content: counter(mycounter) ".) ";
+            margin-left:-30px;
+        }
+        ol.continue>div>li:before {
+            counter-increment: mycounter;
+            content: counter(mycounter) ".) ";
+            margin-left:-30px;
+        }
+	</style>
   </head>
   <body ng-app="myApp" >
 	<div ng-controller="mainCtrl">
@@ -49,39 +79,35 @@
 		
 		<div>
 			<div class="container">
-			
 				<div class="form-group offset-right">
 					<button type="button" class="btn btn-default" >Cancel</button>
 					<button type="submit" class="btn btn-primary" ng-click="validateAssessment()">Submit</button>
-					<button type="submit" class="btn btn-primary" ng-click="printAssessment('printableArea')">Print</button>
 				</div>
-				<div id="printableArea">
-					<div class="row"><div class="col-sm-9"><h3>{{asm.assessmentText}}</h3><hr/></div></div>
-					<div class="row">
-						<div class="col-sm-12" ng-repeat="qBlock in asm.getSortedQuestionBlocks()">
-							<div ng-show="asm.assessmentQBlockTextFlag =='1'" class="row"><div class="col-sm-9"><u><h4>{{qBlock.qBlockText}}</h4></u></div></div>
-							<div ng-show="debug" style="display:none">
-								<div class="row"><label class="col-sm-3">QB ID</label><div class="col-sm-4">{{qBlock.qBlockId}}</div></div>
-								<div class="row"><label class="col-sm-3">QB Title</label><div class="col-sm-4">{{qBlock.qBlockText}}</div></div>
-								<div class="row"><label class="col-sm-3">#Q</label><div class="col-sm-4">{{qBlock.qBlockQuestions.length}}</div></div>
-								<div class="row"><label class="col-sm-3">#Q Selected</label><div class="col-sm-4">{{asm.getNumOfSelectedQuestionsInQBlock(qBlock.qBlockId)}}</div></div>
-							</div>
-							<ol class="{{(($index > 0)? 'continue' : 'start')}}">
-								<div ng-repeat="qtn in asm.getSortedQuestions(qBlock.qBlockId)">
-									<li>{{qtn.questionText}} [{{qtn.order}}] [{{qtn.questionType}}]</li>
-									<ul>
-										<div ng-repeat="qchs in asm.getSortedQChoice(qtn.questionId)">
-											<li> 
-												<input type="{{qtn.questionType=='single'? 'radio':'checkbox'}}" name="{{qtn.questionId}}" id="{{qchs.answerId}}" value="{{qchs.answerId}}" ng-click="questionChoice(this)">
-												<label for="{{qchs.answerId}}">{{qchs.answerText}}<span ng-show="((showAnswers) && (qchs.answerCorrectFlag =='1'))">-- 1</span></label>
-											</li>
-										</div>
-									</ul>
-								</div>
-							</ol>
+				<div class="row"><div class="col-sm-9"><h3>{{asm.assessmentText}}</h3><hr/></div></div>
+				<div class="row">
+					<div class="col-sm-12" ng-repeat="qBlock in asm.getSortedQuestionBlocks()">
+						<div ng-show="asm.assessmentQBlockTextFlag =='1'" class="row"><div class="col-sm-9"><u><h4>{{qBlock.qBlockText}}</h4></u></div></div>
+						<div ng-show="debug">
+							<div class="row"><label class="col-sm-3">QB ID</label><div class="col-sm-4">{{qBlock.qBlockId}}</div></div>
+							<div class="row"><label class="col-sm-3">QB Title</label><div class="col-sm-4">{{qBlock.qBlockText}}</div></div>
+							<div class="row"><label class="col-sm-3">#Q</label><div class="col-sm-4">{{qBlock.qBlockQuestions.length}}</div></div>
+							<div class="row"><label class="col-sm-3">#Q Selected</label><div class="col-sm-4">{{asm.getNumOfSelectedQuestionsInQBlock(qBlock.qBlockId)}}</div></div>
 						</div>
-						<hr/>
+						<ol class="{{(($index > 0)? 'continue' : 'start')}}">
+							<div ng-repeat="qtn in asm.getSortedQuestions(qBlock.qBlockId)">
+								<li>{{qtn.questionText}} [{{qtn.order}}] [{{qtn.questionType}}]</li>
+								<ul>
+									<div ng-repeat="qchs in asm.getSortedQChoice(qtn.questionId)">
+										<li> 
+											<input type="{{qtn.questionType=='single'? 'radio':'checkbox'}}" name="{{qtn.questionId}}" id="{{qchs.answerId}}" value="{{qchs.answerId}}" ng-click="questionChoice(this)">
+											<label for="{{qchs.answerId}}">{{qchs.answerText}}<span ng-show="((showAnswers) && (qchs.answerCorrectFlag =='1'))">-- 1</span></label>
+										</li>
+									</div>
+								</ul>
+							</div>
+						</ol>
 					</div>
+					<hr/>
 				</div>
 			</div>
 			<!-- Modal HTML -->

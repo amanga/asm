@@ -1,0 +1,36 @@
+ul li{
+	list-style: none;
+	margin-left:-30px;
+}
+body{
+	counter-reset: mycounter;
+}
+ol.start{
+	padding-left: 40px;
+}
+ol.continue{
+	padding-left: 40px;
+}
+ol.start>div>li {
+	list-style: none;
+}
+ol.continue>div>li {
+	list-style: none;
+}
+ol.start>div>li:before {
+	counter-increment: mycounter;
+	content: counter(mycounter) ".) ";
+	margin-left:-30px;
+}
+ol.continue>div>li:before {
+	counter-increment: mycounter;
+	content: counter(mycounter) ".) ";
+	margin-left:-30px;
+}
+
+.displayNone{
+	display:none;
+}
+.displayBlock{
+	display:block;
+}

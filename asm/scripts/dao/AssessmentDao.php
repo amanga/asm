@@ -33,6 +33,8 @@
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
 					$questionBlocks = $this->loadQuestionBlocks($_id);
+					$asmQBlockRandomizeFlag = $row["QB_RANDOM_FLAG"];
+					$asmQBlockTitleFlag = $row["QB_TITLE_FLAG"];
 					 $asm = new Assessment($row["ASSESSMENT_ID"],$row["TITLE"],$questionBlocks,$asmQBlockTitleFlag,$asmQBlockRandomizeFlag,$row["NOTE"],$row["COMMENTS"],$row["DESCRIPTION"],$row["STATUS"]);
 					//load question blocks
 					
